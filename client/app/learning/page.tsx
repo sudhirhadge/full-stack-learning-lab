@@ -1,7 +1,6 @@
 import TopicCard from '@/_components/TopicCard';
 import SectionHeading from '@/_components/SectionHeading';
-import { learningTopics } from '@/utils/learningTopics';
-
+import { learningTopics } from '@/app/learning/_utils/learningTopics';
 function LearningPage() {
     const beginnerTopics = learningTopics.filter((t) => t.level === 'Intermediate');
     const advancedTopics = learningTopics.filter((t) => t.level === 'Advanced');
