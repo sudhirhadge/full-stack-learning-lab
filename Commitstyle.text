@@ -1,6 +1,0 @@
-In Conventional Commits, valid types are things like:
-
-feat → new feature
-fix → bug fix
-chore → setup, tooling, configs
-refactor, docs, test
