@@ -20,6 +20,12 @@ export function LoanComparisonLayout() {
             scenario3: formatCurrency(results[2].result.calculatedEmi),
         },
         {
+            label: "Intrest Rate",
+            scenario1: results[0].scenario.interestRate + '%',
+            scenario2: results[1].scenario.interestRate + '%',
+            scenario3: results[2].scenario.interestRate + '%',
+        },
+        {
             label: 'Loan closure duration',
             scenario1: formatMonths(results[0].result.actualClosureMonth),
             scenario2: formatMonths(results[1].result.actualClosureMonth),
@@ -32,13 +38,13 @@ export function LoanComparisonLayout() {
             scenario3: formatCurrency(results[2].result.totalInterestPaid),
         },
         {
-            label: 'Total paid',
+            label: 'Total paid : Principal + Interest',
             scenario1: formatCurrency(results[0].result.totalPaid),
             scenario2: formatCurrency(results[1].result.totalPaid),
             scenario3: formatCurrency(results[2].result.totalPaid),
         },
         {
-            label: 'Interest saved',
+            label: 'Interest saved w.r.t. base emi case',
             scenario1: formatCurrency(results[0].result.interestSaved),
             scenario2: formatCurrency(results[1].result.interestSaved),
             scenario3: formatCurrency(results[2].result.interestSaved),
@@ -72,14 +78,14 @@ export function LoanComparisonLayout() {
                         ))}
                     </div>
 
-                    <div className="space-y-6 lg:sticky lg:top-6 lg:self-start">
+                    <div className="space-y-5 lg:sticky lg:top-6 lg:self-start">
                         {results.map(({ scenario, result }) => (
                             <SectionContainer
                                 key={scenario.id}
                                 title={scenario.name}
                                 description="Real-time calculated insights"
                             >
-                                <div className="grid gap-3">
+                                <div className="grid gap-4">
                                     <ResultCard
                                         title="Core Metrics"
                                         items={[
@@ -88,7 +94,7 @@ export function LoanComparisonLayout() {
                                             { label: 'Interest saved', value: formatCurrency(result.interestSaved) },
                                         ]}
                                     />
-                                    <ResultCard
+                                    {/* <ResultCard
                                         title="Impact Metrics"
                                         items={[
                                             { label: 'Tenure saved', value: formatMonths(result.tenureSavedMonths) },
@@ -96,12 +102,12 @@ export function LoanComparisonLayout() {
                                             { label: 'Outstanding reduction', value: formatCurrency(result.outstandingReduction) },
                                         ]}
                                         highlight
-                                    />
+                                    /> */}
                                 </div>
                             </SectionContainer>
                         ))}
 
-                        <LoanAmortizationChart result={results[0].result} />
+                        {/* <LoanAmortizationChart result={results[0].result} /> */}
                     </div>
                 </div>
 
